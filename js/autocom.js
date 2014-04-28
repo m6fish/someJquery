@@ -30,6 +30,8 @@ $(function() {
         return split( term ).pop();
     }
 
+    var targetURL = "php/autoList.php";
+
     $( "#tags" )
     // don't navigate away from the field on tab when selecting an item
     .bind( "keydown", function( event ) {
@@ -40,11 +42,14 @@ $(function() {
     })
     .autocomplete({
         minLength: 0,
+        /*
         source: function( request, response ) {
             // delegate back to autocomplete, but extract the last term
             response( $.ui.autocomplete.filter(
             availableTags, extractLast( request.term ) ) );
-        },
+        }
+        */
+        source:targetURL,        
         focus: function() {
             // prevent value inserted on focus
             return false;
