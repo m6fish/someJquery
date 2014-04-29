@@ -1,36 +1,15 @@
 $(function() {
-    var availableTags = [
-    "ActionScript",
-    "AppleScript",
-    "Asp",
-    "BASIC",
-    "C",
-    "C++",
-    "Clojure",
-    "COBOL",
-    "ColdFusion",
-    "Erlang",
-    "Fortran",
-    "Groovy",
-    "Haskell",
-    "Java",
-    "JavaScript",
-    "Lisp",
-    "Perl",
-    "PHP",
-    "Python",
-    "Ruby",
-    "Scala",
-    "Scheme"
-    ];
-    function split( val ) {
-        return val.split( /,\s*/ );
-    }
-    function extractLast( term ) {
-        return split( term ).pop();
-    }
 
     var targetURL = "php/autoList.php";
+
+    function split( val ) 
+    {
+        return val.split( /,\s*/ );
+    }
+    function extractLast( term ) 
+    {
+        return split( term ).pop();
+    }
 
     $( "#tags" )
     // don't navigate away from the field on tab when selecting an item
