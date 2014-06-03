@@ -20,15 +20,19 @@ $(function() {
         }
     })
     .autocomplete({
-        minLength: 0,
-        /*
+        //minLength: 0,
         source: function( request, response ) {
-            // delegate back to autocomplete, but extract the last term
-            response( $.ui.autocomplete.filter(
-            availableTags, extractLast( request.term ) ) );
-        }
-        */
-        source:targetURL,        
+            $.getJSON( targetURL, {
+                term: extractLast( request.term )
+            }, response );
+        },
+        search: function() {
+            // custom minLength
+            var term = extractLast( this.value );
+            if ( term.length < 2 ) {
+                return false;
+            }
+        },
         focus: function() {
             // prevent value inserted on focus
             return false;

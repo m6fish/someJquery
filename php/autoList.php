@@ -1,11 +1,17 @@
 <?php
 $term = $_GET['term'];
-$listArr = array("apple","banana","code","deck","email","fox");
 
+$rawArr = array("apple","banana","code","deck","email","fox","alt","cap","duck","ate");
+$ansArr = array();
 
-echo json_encode($listArr);
+foreach ($rawArr as $value) {
+    //search for same word.
+    if (strpos($value, $term) === false) {
 
+    } else {
+        $ansArr[] = $value;    
+    }
+}
 
-
-
+echo json_encode($ansArr);
 
